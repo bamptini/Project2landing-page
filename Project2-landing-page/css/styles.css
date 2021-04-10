@@ -14,14 +14,14 @@ body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
     margin: 0;
-    font-family: 'Merriweather', serif;
+    font-family: Montserrat, sans-serif;
     color: #fff;
 }
 
 
 /* Typeography General*/
 h1 {
-    font-family: 'Fira Sans', sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 3em;
     margin: 2em 1rem;
 }
@@ -35,7 +35,7 @@ h1 {
 
 h2 {
     border-bottom: 1px solid #cc1;
-    font-family: 'Oxygen', Sans-Serif;
+    font-family: Montserrat, sans-serif;
     font-size: 3em;
     color: #fff;
 }
@@ -60,33 +60,99 @@ section {
     min-height: 80vh;
 }
 
-
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
-.navbar__menu ul {
-    padding-left: 0;
-    margin: 0;
-    text-align: right;
+.navbar {
+	margin-bottom: 0;
+    min-height: 50px;
+	background-color: #e0e0e0;
+	z-index: 9999;
+	border: 0;
+	font-size: 15px !important;
+	line-height: 1.42857143 !important;
+	letter-spacing: 4px;
+	border-radius: 0;
+	font-family: Montserrat, sans-serif;
+    margin-bottom: 20px;
+	/*margin-left: -80px;*/ /* navbar set with minus to make the contact div level*/
 }
 
-.navbar__menu li {
-    display: inline-block;
-}
-
-.navbar__menu .menu__link {
+.nav > li {
+    position: relative;
     display: block;
-    padding: 1em;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000;
 }
 
-.navbar__menu .menu__link:hover {
-    background: #333;
-    color: #fff;
-    transition: ease 0.3s all;
+.navbar li a, .navbar {
+	color: #afb5ca !important;
+    padding: 20px;
 }
+
+.navbar-header{
+    float:left;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+	color: #424242 !important;
+	background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: transparent;
+	color: #aaa !important;
+}
+
+.navbar-brand {
+	padding-right: 150px;
+	font-size: 22px;
+	color: #607d8b;
+	font-family: Montserrat, sans-serif;
+}
+
+
+.navbar-nav > li {
+    float: left;
+   
+}
+
+.active {
+    background: black;
+  }
+
+/*Contacts constant Fxied*/
+
+.contacts-fixed {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding-top: 1px;
+    margin-top: 0px;
+}
+
+ul#contacts {
+    margin-top: 0%;
+    position: relative;
+    width: 100%;
+    bottom: 0px;
+    padding-left: 1%;
+    padding-right: 1%;
+    border: 1px solid #afb5ca;
+    text-align: center;
+    list-style-position: inside;
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+}
+
+.contacts-fixed ul {
+    color: white;
+    background: rgba(0, 87, 184, 0.40);
+    padding: 1px;
+    color: #fff;
+    text-align: center;
+    font-size: 26px;
+}
+
 
 /* Header Styles */
 .page__header {
