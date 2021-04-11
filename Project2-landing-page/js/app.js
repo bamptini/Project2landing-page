@@ -79,6 +79,7 @@ function changeActiveView() {
 function changeActiveView() {
     
     const links = document.querySelectorAll('.links');
+    const sect = document.querySelectorAll('.sect');
     const sections = document.querySelectorAll('section');
 
     window.addEventListener('scroll', changeActiveView);
@@ -89,6 +90,9 @@ function changeActiveView() {
     
     links.forEach((lins) => lins.classList.remove('active'));
     links[index].classList.add('active');
+
+    sect.forEach((sec) => sec.classList.remove('active'));
+    sect[index].classList.add('active');
   }
 
 
