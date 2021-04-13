@@ -24,6 +24,7 @@ const listItem = document.createElement('li');*/
 
 // Create dynamic navbar variables
 const allSections = document.querySelectorAll('section');
+const navs = document.querySelectorAll('.navbar a');
 // Active Links variables
 //const links = document.querySelectorAll('.links');
 //const sections = document.querySelectorAll('section');
@@ -48,7 +49,8 @@ function createNav() {
 for(let i = 0.; i < allSections.length; i ++){
     const myHead = allSections[i].id;
     
-    const newNav = document.createElement('li');
+    const newNav = document.createElement('li');  
+
     newNav.innerHTML = '<a class="'+myHead+' links" href="#'+myHead+'">'+myHead.toUpperCase()+'</a>';
     const mainNav = document.querySelector('.navbar');
     mainNav.appendChild(newNav); 
@@ -76,7 +78,7 @@ function changeActiveView() {
 //const links = document.querySelectorAll('.links');
 //const sections = document.querySelectorAll('section');
 
-function changeActiveView() {
+function changeActiveView() {    
     
     const links = document.querySelectorAll('.links');
     const sect = document.querySelectorAll('.sect');
@@ -98,18 +100,22 @@ function changeActiveView() {
 
 
 // Scroll to anchor ID using scrollTO event
+navs.forEach(elem => elem.addEventListener("click", navClick));
 
-var elem=document.querySelectorAll('.');
-window.onscroll = function() {scrollFunction()};
+function navClick(event) {
 
-function scrollFunction() {
-    for(var i=0;i<3;i++){
-        elem[i] = elem[i].getBoundingClientRect();
-        if (document.body.scrollTop > elem[i].y || document.documentElement.scrollTop > elem[i].y) {
-            elem[i].classList.add('toTop');
+    smoothScroll(event); //Call smoothScroll function with click event
+
         }
-    }
-}
+//window.scrollTo()
+        function smoothScroll(event) {
+            event.preventDefault();
+            const toHref = event.currentTarget.getAttribute("href");
+            window.scrollTo({
+            top: document.querySelector(toHref).offsetTop,
+            behavior: "smooth"
+            });
+        }
 
 /*window.addEventListener("scroll")*/
 
