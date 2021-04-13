@@ -18,18 +18,12 @@
  * 
 */
 
-/*const navLinks = document.querySelectorAll('.landing__containrer');
-const sections = document.querySelectorAll('section');
-const listItem = document.createElement('li');*/
-
 // Create dynamic navbar variables
 const allSections = document.querySelectorAll('section');
-const navs = document.querySelectorAll('.navbar a');
-// Active Links variables
-//const links = document.querySelectorAll('.links');
-//const sections = document.querySelectorAll('section');
 
-/*const listHtml = '<a href="#' + navLinks.*/
+// Active Links variables
+const navs = document.querySelectorAll('.navbar a');
+const mainNav = document.querySelector('.navbar');
 
 /**
  * End Global Variables
@@ -43,40 +37,20 @@ const navs = document.querySelectorAll('.navbar a');
  * 
 */
 
-// build the nav
-
+// build the nav and add scrollTo event listener
 function createNav() {
 for(let i = 0.; i < allSections.length; i ++){
     const myHead = allSections[i].id;
-    
     const newNav = document.createElement('li');  
 
     newNav.innerHTML = '<a class="'+myHead+' links" href="#'+myHead+'">'+myHead.toUpperCase()+'</a>';
-    const mainNav = document.querySelector('.navbar');
+    newNav.addEventListener("click", smoothScroll);
     mainNav.appendChild(newNav); 
     console.log(myHead);
   }
 }
 
 // Add class 'active' to section when near top of viewport
-
-/*const links = document.querySelectorAll('.links');
-const sections = document.querySelectorAll('section');
-
-function changeActiveView() {
-    let index = sections.length;
-  
-    while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
-    
-    links.forEach((links) => link.classList.remove('active'));
-    links[index].classList.add('active');
-  }*/
-
-
-  // New code that seesm to work in console
-
-//const links = document.querySelectorAll('.links');
-//const sections = document.querySelectorAll('section');
 
 function changeActiveView() {    
     
@@ -95,44 +69,18 @@ function changeActiveView() {
 
     sect.forEach((sec) => sec.classList.remove('active'));
     sect[index].classList.add('active');
-  }
-
-
+}
 
 // Scroll to anchor ID using scrollTO event
-navs.forEach(elem => elem.addEventListener("click", navClick));
 
-function navClick(event) {
-
-    smoothScroll(event); //Call smoothScroll function with click event
-
-        }
 //window.scrollTo()
         function smoothScroll(event) {
             event.preventDefault();
-            const toHref = event.currentTarget.getAttribute("href");
+            const toHref = event.target.getAttribute("href");
             window.scrollTo({
             top: document.querySelector(toHref).offsetTop,
             behavior: "smooth"
             });
+            console.log(toHref);
         }
-
-/*window.addEventListener("scroll")*/
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-//changeActiveView();
-//window.addEventListener('scroll', changeActiveView);
-
-
+// END
